@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Movie Title - CPE32S3</title>
+    <link href="./styles/index.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/nav.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/video.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/top.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/content-row.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <nav class="row">
+        <div class="left row">
+            <img src="./assets/cpe32s3-netflix.png" alt="logo" class="brand"/>
+            <ul class="nav-items row">
+                <li class="nav-items">Home</li>
+                <li class="nav-items">TV Shows</li>
+                <li class="nav-items">Movies</li>
+                <li class="nav-items">New & Popular</li>
+                <li class="nav-items">My List</li>
+                <li class="nav-items">Browse by Languages</li>
+            </ul>
+        </div>
+
+        <div class="right row">
+            <ul class="nav-icons row">
+                <li class="nav-item icon">
+                    <i data-feather="search"></i>
+                </li>
+                <li class="nav-item icon">
+                    <i data-feather="bell"></i>
+                </li>
+                <li class="nav-item icon">
+                    <img width="32" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117" alt="logo"/>
+                </li>
+                    <i data-feather="chevron-down"></i>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="dark-bottom"></div>
+        <div class="dark-left"></div>
+
+        <section class="video-player">
+            <video id="movie-player" controls autoplay width="100%" style="max-height: 500px; background-color: black; display: block;">
+            <source id="video-source" src="" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </section>
+
+  <!-- Movie Info Section -->
+  <section class="video-details">
+    <h1 class="movie-title" id="movie-title"></h1>
+    <p class="movie-description" id="movie-synopsis"></p>
+    <p class="movie-meta">Starring: <span id="movie-actors"></span></p>
+    <p class="movie-meta">Directed by: <span id="movie-director"></span></p>
+    <p class="movie-meta">Written by: <span id="movie-writer"></span></p>
+    <p class="movie-meta">Edited by: <span id="movie-editor"></span></p>
+    <p class="movie-meta">Camerawork by: <span id="movie-camera"></span></p>
+    <div class="movie-buttons row">
+      <button class="play-btn"><i class="fa-solid fa-play"></i> Play</button>
+      <button class="info-btn"><i data-feather="plus"></i> Add to My List</button>
+      <button class="info-btn"><i data-feather="thumbs-up"></i> Like</button>
+    </div>
+  </section>
+
+  <script src="movies.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get('id');
+    const movie = movies[movieId];
+
+    if (movie) {
+      document.getElementById('movie-title').textContent = movie.title;
+      document.getElementById('video-source').src = movie.videoUrl;
+      document.getElementById('movie-player').load();
+
+      document.getElementById('movie-synopsis').textContent = movie.synopsis;
+      document.getElementById('movie-director').textContent = movie.director;
+      document.getElementById('movie-writer').textContent = movie.writer;
+      document.getElementById('movie-editor').textContent = movie.editor;
+      document.getElementById('movie-actors').textContent = movie.actors;
+      document.getElementById('movie-camera').textContent = movie.cameraman;
+    } else {
+      document.querySelector('main').innerHTML = "<h1 style='text-align:center;'>Movie not found</h1>";
+    }
+  </script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
+	

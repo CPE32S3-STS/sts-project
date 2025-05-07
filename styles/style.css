@@ -1,0 +1,32 @@
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .movie-grid img {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .movie-grid img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  .video-container {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  video {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  

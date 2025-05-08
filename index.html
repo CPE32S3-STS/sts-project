@@ -7,7 +7,7 @@
 <body>
     <header>
         <div class="nav_bar">
-            <a class='nav_logo' href="index.html"><img src="assets/p_s.png" alt="logo" height="65px"></a>
+            <a class='nav_logo' href="index.html"><img src="assets/p_s.png" alt="logo" height="125px"></a>
             <nav class="nav_buttons">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -20,10 +20,127 @@
             </nav>
         </div>
     </header>
+    <main>
+        <div class="top">
+            <img
+                src="./assets/bg1.jpg"
+                alt="background-image"
+                class="bg-image fade show"
+                id="bg-image"
+            />
+            <div class="dark-bottom"></div>
+            <div class="dark-left"></div>
 
-    <div class="title-part">
-        <img src="assets/bg1.jpg" height="900px" width="100%">
-    </div>
 
+            <div class="billboard fade show">
+                <img
+                    src="assets/p_s_billboard.png"
+                    alt="bg_img"
+                    height="200px"
+                    id="billboard"
+                />
+                <div class="title fade show" id="title">"Short Films. Dark Truths. Digital Realities."</div>
+                <div class="description fade show" id="description">
+                    A compelling collection of short films produced by the
+                    talented students of CPE32S3 Sy. 2024-2025, aimed at raising awareness about the dangers of various cyber crimes
+                    prevalent in today's digital world.
+                </div>
+            </div>
+            <div class="carousel-bullets" id="carousel-bullets"></div>
+    </main>
+
+    <script>
+        const contentData = [
+            {
+                bg: "assets/bg1.jpg",
+                billboardImg: "assets/p_s_billboard.png",
+                title: '"Short Films. Dark Truths. Digital Realities."',
+                desc: "A compelling collection of short films produced by the talented students of CPE32S3 Sy. 2024-2025, aimed at raising awareness about the dangers of various cyber crimes prevalent in today's digital world."
+            },
+            {
+                bg: "assets/control-alt-deceit/background2.png",
+                billboardImg: "assets/control-alt-deceit/billboard.png",
+                title: '"It was just a link—what could go wrong?"',
+                desc: "Ethan, skeptic in antivirus softwares, ignores his workmate’s warning and clicks a suspicious email link. Through a chilling turn of events, Ethan learns the hard way that even one careless click can lead to devastating consequences."
+            },
+            {
+                bg: "assets/romance-scam/background.png",
+                billboardImg: "assets/romance-scam/billboard.png",
+                title: '"Every red flag looked like a rose."',
+                desc: "Sarah begins asking for financial help, and despite Jeremy’s growing concerns, John Lloyd finds it hard to say no. Blinded by love, he ignores the red flags—until he uncovers a shocking truth that forces him to confront the deception and warn others before it’s too late."
+            },
+            {
+                bg: "assets/bg1.jpg",
+                billboardImg: "assets/friendly-fire/billboard.png",
+                title: '"Smiles on screens. Knives in text."',
+                desc: "Illustrates the digital decomposition of a college friend group perpetrated in the person of Jhill, well-intentioned student, who blindly finds herself as the target of persistent cyberbullying under the disguise of friendly jokes."
+            },
+            {
+                bg: "assets/ctrl-steal/background.png",
+                billboardImg: "assets/ctrl-steal/billboard.png",
+                title: '"Access granted. Consequences loading."',
+                desc: "Gabrielle, the outsider, determined to claim that same experience for himself, he turns to pirated software—unaware that this reckless choice will lead to his downfall."
+            }
+        ];
+    
+        let currentIndex = 0;
+        const bgImage = document.getElementById("bg-image");
+        const billboardImg = document.getElementById("billboard");
+        const titleEl = document.getElementById("title");
+        const descEl = document.getElementById("description");
+        const bulletsContainer = document.getElementById("carousel-bullets");
+    
+        function updateSlide(index) {
+    const { bg, billboardImg: bbImg, title, desc } = contentData[index];
+
+    const elements = [bgImage, billboardImg, titleEl, descEl];
+
+    // Step 1: Fade out
+    elements.forEach(el => el.classList.remove("show"));
+
+    // Step 2: Wait for fade-out to finish, then update content
+    setTimeout(() => {
+        bgImage.src = bg;
+        billboardImg.src = bbImg;
+        titleEl.textContent = title;
+        descEl.textContent = desc;
+
+        // Step 3: Fade back in
+        elements.forEach(el => el.classList.add("show"));
+    }, 500); // Match CSS transition time
+
+    // Update bullet indicators
+    document.querySelectorAll(".bullet").forEach((bullet, i) => {
+        bullet.classList.toggle("active", i === index);
+    });
+}
+    
+        // Create bullets
+        contentData.forEach((_, idx) => {
+            const bullet = document.createElement("div");
+            bullet.classList.add("bullet");
+            if (idx === 0) bullet.classList.add("active");
+            bullet.addEventListener("click", () => {
+                currentIndex = idx;
+                updateSlide(currentIndex);
+                resetAutoScroll();
+            });
+            bulletsContainer.appendChild(bullet);
+        });
+    
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % contentData.length;
+            updateSlide(currentIndex);
+        }
+    
+        let intervalId = setInterval(nextSlide, 10000);
+    
+        function resetAutoScroll() {
+            clearInterval(intervalId);
+            intervalId = setInterval(nextSlide, 10000);
+        }
+    
+        updateSlide(currentIndex);
+    </script>
 </body>
 </html>

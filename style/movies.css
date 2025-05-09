@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 500;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+header {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav_bar {
+  display: flex;
+  background-color: #1a1a1a;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80px;
+}
+
+.nav_logo {
+  padding: 0 25px;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.nav_buttons ul {
+  padding: 0px 25px;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav_buttons a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav_buttons li:hover,
+.nav_buttons a:hover {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+}
+
+/* Video and layout */
+
+.media-layout {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.movie-player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  border: none;
+}
+
+/* Overlay info */
+
+.overlay {
+  position: fixed;
+  top: 80px; /* below navbar */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100px);
+}
+
+.info-panel {
+  max-width: 600px;
+}
+
+.info-panel img {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.info-panel p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.cast h3 {
+  margin-bottom: 0.5rem;
+}
+
+.cast ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cast li {
+  margin-bottom: 4px;
+}

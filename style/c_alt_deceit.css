@@ -6,6 +6,10 @@
     font-weight: 500;
 }
 
+body {
+    background-color:  #1a1a1a;
+}
+
 .nav_bar {
     position: fixed;
     width: 100%;
@@ -49,4 +53,8 @@
 .nav_buttons a:hover{
     background-color: #f2f2f2;
     color: #1a1a1a;
+}
+
+.movie-player {
+    padding: 70px 0 0;
 }

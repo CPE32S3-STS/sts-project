@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tribute to Rorochan_1999</title>
+  <link rel="icon" type="image/x-icon" href="assets/head_logo.png" />
+  <link rel="stylesheet" href="style/movies.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <header>
+    <div class="nav_bar">
+      <a class="nav_logo" href="index.html"><img src="assets/p_s.png" alt="logo" height="125px" /></a>
+      <nav class="nav_buttons">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="c_alt_deceit.html">Control Alt Deceit</a></li>
+          <li><a href="romance_scam.html">Romance? Scam?</a></li>
+          <li><a href="friendly_fire.html">Friendly Fire</a></li>
+          <li><a href="ctrl_steal.html">Ctrl + Steal</a></li>
+          <li><a href="index.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="media-layout">
+      <video class='movie-player' width="1680" height="900" controls autoplay>
+        <source src="blogs/ruru_sshow.mp4">
+      </video>
+
+      <div class="overlay" id="overlay">
+        <div class="info-panel">
+          <h1>This website is a tribute to Rorochan_1999</h1>
+          <p>
+            Rorochan_1999 was a Japanese teenage livestreamer from
+             Ōmihachiman, Shiga Prefecture, who gained attention online between 2012 and 2013 
+             through platforms like Nico Nico Douga, FC2, and Twitter. Known for her piano performances, 
+             singing, and interactions with viewers, she gradually developed a following and became somewhat of a net idol. 
+             However, as her popularity grew, so did the signs of emotional distress. She began engaging in increasingly dangerous
+              behavior during her streams, allegedly in a pursuit to gain more attention and secure her place as an “internet legend.”
+               Viewers witnessed her emotional decline as she exhibited unstable behavior, often crying or laughing uncontrollably during live sessions, 
+               while also referencing conflict at home, potential bullying, and other struggles.
+          </p>
+          <p>
+            The tragedy culminated on November 24, 2013, when Rorochan livestreamed what would be her final moments. 
+            During the stream, visibly distressed and wearing a mask, she aimed the camera over the edge of her 13th-floor balcony as viewers watched in confusion and horror. 
+            Despite some viewers trying to help, others reportedly encouraged her fatal decision. She ultimately jumped, and the stream captured the camera falling and the
+             sound of her impact. Though her story briefly received online memorials and discussions, it faded from mainstream attention, 
+             becoming yet another heartbreaking example of a young person overwhelmed by the pressures of internet culture and personal turmoil.
+          </p>
+          <h3><a href="https://knowyourmeme.com/memes/people/roro-chan">Learn more about her</a></h3>
+          <h3><a href="https://niconamabiboroku.blogspot.com/2013/11/fc2jc.html?m=1">Learn more about her, translate!</a></h3>
+          <h2>You will be always Remembered</h2>
+          <h1>May you Rest in Peace</h1>
+        </div>
+          <img src="blogs/rorochan.jpg" height="350px">
+          <img src="blogs/rorochan-sym.jpg" height="350px">
+          <img src="blogs/rorochan-2.jpg" height="350px">
+      </div>
+    </div>
+    <div style="height: 1000px;"></div>
+  </main>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        overlay.classList.add('hidden');
+      } else {
+        overlay.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
